@@ -67,7 +67,8 @@
     "url": "https://github.com/h5bp/html5-boilerplate.git"
   },
   "dependencies": {
-    "dashjs": "^2.2.0",
+    "dashjs": "^2.3.0",
+    "gulp-watch": "^5.0.0",
     "video.js": "^6.2.8",
     "videojs-contrib-dash": "^2.9.2"
   }

@@ -20,7 +20,7 @@ import modernizr from 'modernizr';
 import pkg from './package.json';
 import modernizrConfig from './modernizr-config.json';
 
-
+const watch = require('gulp-watch');
 const dirs = pkg['h5bp-configs'].directories;
 
 // ---------------------------------------------------------------------
@@ -206,3 +206,11 @@ gulp.task('build', (done) => {
 });
 
 gulp.task('default', ['build']);
+
+
+//@TODO - doesn't work
+gulp.task('watch', function () {
+    return gulp.src('src/**/*')
+        .pipe(watch(['src/**/*.js', 'src/*.html', 'src/**/*.css']))
+        .pipe(gulp.dest('build'));
+});
