@@ -1,0 +1,75 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="manifest" href="site.webmanifest">
+        <link rel="apple-touch-icon" href="icon.png">
+        <!-- Place favicon.ico in the root directory -->
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="js/vendor/video-js.css">
+    </head>
+    <body>
+        <!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+        <script src="http://debug.amgapps.com/target/target-script-min.js#av-22"></script>
+        <!-- Add your site or application content here -->
+        <video id=example-video width=1200 height=780 class="video-js vjs-default-skin" controls>
+            <!--<track src="video/subtitles/en/subtitles.txt" kind="subtitles" label="en" srclang="en" default>-->
+        </video>
+        <p>Hello world! This is HTML5 Boilerplate.</p>
+        <script src="js/vendor/modernizr-{{MODERNIZR_VERSION}}.min.js"></script>
+        <script src="https://code.jquery.com/jquery-{{JQUERY_VERSION}}.min.js" integrity="{{JQUERY_SRI_HASH}}" crossorigin="anonymous"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-{{JQUERY_VERSION}}.min.js"><\/script>')</script>
+        <script src="js/vendor/alt/video.novtt.js"></script>
+
+        <!-- Dash.js -->
+        <script src="js/vendor/dash.all.debug.js"></script>
+
+        <!-- videojs-contrib-dash script -->
+        <script src="js/vendor/videojs-dash.js"></script>
+
+        <script>
+            var player = videojs('example-video', {
+                html5: {
+                    nativeCaptions: false,
+                    nativeTextTracks: false
+                }
+            });
+
+            player.ready(function() {
+                player.src({
+                    src: 'video/stream.mpd',
+                    type: 'application/dash+xml'
+                });
+
+                player.play();
+                showSubitles();
+            });
+
+            function showSubitles(){
+                var tracks = player.textTracks();
+                if(tracks[0]){
+                    tracks[0].mode = 'showing'
+                } else {
+                    setTimeout(showSubitles, 100);
+                }
+            }
+        </script>
+
+
+        <Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+        <script>
+            window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
+            ga('create','UA-XXXXX-Y','auto');ga('send','pageview')
+        </script>
+        <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+    </body>
+</html>
