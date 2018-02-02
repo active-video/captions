@@ -117,6 +117,7 @@ gulp.task('copy:videostuff', () =>
     gulp.src([
         'node_modules/videojs-contrib-dash/dist/videojs-dash.js',
         'node_modules/dashjs/dist/*',
+        'node_modules/video.js/dist/*',
         'node_modules/video.js/dist/*/**'
 
     ])

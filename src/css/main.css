@@ -55,6 +55,8 @@ img,
 svg,
 video {
     vertical-align: middle;
+    width: 1280px;
+    height: 720px;
 }
 
 /*
