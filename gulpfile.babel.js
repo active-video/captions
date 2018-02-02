@@ -118,7 +118,8 @@ gulp.task('copy:videostuff', () =>
         'node_modules/videojs-contrib-dash/dist/videojs-dash.js',
         'node_modules/dashjs/dist/*',
         'node_modules/video.js/dist/*',
-        'node_modules/video.js/dist/*/**'
+        'node_modules/video.js/dist/*/**',
+        '!**/*.zip'
 
     ])
         .pipe(gulp.dest(`${dirs.dist}/js/vendor`))
